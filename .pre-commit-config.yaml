@@ -47,7 +47,6 @@ repos:
         language: system
         pass_filenames: false
         stages: [commit]
-        # Deze hook wordt alleen uitgevoerd na de build hook als er wijzigingen zijn in de files pattern
         files: ^(src/|package\.json|tsconfig\.json|action\.yml)
 
       - id: test

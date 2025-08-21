@@ -48,12 +48,22 @@ jobs:
       with:
         config-json: |
           {
-            "packageSources": [
-              {
-                "name": "NuGet",
+            "packageSources": {
+              "NuGet": {
                 "url": "https://api.nuget.org/v3/index.json"
+              },
+              "GitHub": {
+                "url": "https://nuget.pkg.github.com/Luscii/index.json",
+                "protocolVersion": "3.0",
+                "credentials": {
+                  "username": "github-actions",
+                  "password": "${{ secrets.GITHUB_TOKEN }}"
+                }
               }
-            ]
+            },
+            "disabledPackageSources": {
+              "GitHub": false
+            }
           }
         output-path: 'test-nuget.config'
 
