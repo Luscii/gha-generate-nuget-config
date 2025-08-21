@@ -1,0 +1,24 @@
+name: 'Generate NuGet Config'
+description: 'Generate a NuGet config file from JSON'
+author: 'Luscii'
+
+inputs:
+  config-json:
+    description: 'JSON string containing NuGet configuration'
+    required: true
+  output-path:
+    description: 'Path where the nuget.config file should be written'
+    required: false
+    default: 'nuget.config'
+
+outputs:
+  config-path:
+    description: 'Path to the generated NuGet config file'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'
+
+branding:
+  icon: 'file-text'
+  color: 'blue'

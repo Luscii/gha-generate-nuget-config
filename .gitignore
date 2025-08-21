@@ -80,7 +80,11 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+
+# Build output but keep the distribution bundle for GitHub Actions
+dist/*
+!dist/index.js
+!dist/licenses.txt
 
 # Gatsby files
 .cache/
