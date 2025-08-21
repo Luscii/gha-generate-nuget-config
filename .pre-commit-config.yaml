@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        exclude: ^dist/
+      - id: end-of-file-fixer
+        exclude: ^dist/
+      - id: check-yaml
+        exclude: ^dist/
+      - id: check-added-large-files
+        exclude: ^dist/
+
+# Tijdelijk uitgeschakeld vanwege configuratieproblemen
+#  - repo: https://github.com/pre-commit/mirrors-eslint
+#    rev: v9.7.0
+#    hooks:
+#      - id: eslint
+#        files: \.(js|ts|tsx)$
+#        types: [file]
+#        exclude: ^dist/
+#        additional_dependencies:
+#          - eslint@8.57.0
+#          - '@typescript-eslint/eslint-plugin@8.40.0'
+#          - '@typescript-eslint/parser@8.40.0'
+#          - eslint-plugin-jest@29.0.1
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.1.0
+    hooks:
+      - id: prettier
+        exclude: ^dist/
+        files: \.(js|ts|jsx|tsx|json|css|md)$
+
+  - repo: local
+    hooks:
+      - id: build
+        name: build
+        entry: npm run build
+        language: system
+        pass_filenames: false
+        exclude: ^dist/
+        files: ^(src/|package\.json|tsconfig\.json|action\.yml)
+
+      - id: test
+        name: test
+        entry: npm test
+        language: system
+        pass_filenames: false
+        exclude: ^dist/
+        files: ^(src/|package\.json|tsconfig\.json|action\.yml|__tests__/)
