@@ -5,7 +5,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  node-test:
+    name: Build and test scripts
     runs-on: ubuntu-latest
 
     steps:
@@ -33,7 +34,8 @@ jobs:
       run: npm test
 
   test-action:
-    needs: build
+    name: Test the action
+    needs: [node-test]
     runs-on: ubuntu-latest
 
     steps:
