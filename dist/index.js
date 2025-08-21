@@ -31949,7 +31949,7 @@ exports.schema = {
                 type: 'object',
                 properties: {
                     url: { type: 'string', format: 'uri' },
-                    protocolVersion: { type: 'string', pattern: '^\\d+\\.\\d+$', nullable: true },
+                    protocolVersion: { type: 'string', pattern: '^\\d+$', nullable: true },
                     credentials: {
                         type: 'object',
                         properties: {

@@ -10,7 +10,7 @@ describe('NuGet Config Schema Validation', () => {
         },
         Private: {
           url: 'https://example.com/nuget',
-          protocolVersion: '3.0',
+          protocolVersion: '3',
           credentials: {
             username: 'user',
             password: 'pass',
