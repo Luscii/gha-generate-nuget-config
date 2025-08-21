@@ -1,98 +1,66 @@
 version: 1
 labels:
   # VERSION LABELS
-  - label: major
+  - label: "version: major"
     branch: "^major/.+"
-  - label: minor
+  - label: "version: minor"
     branch: "^scenario/.+"
-  - label: patch
+  - label: "version: patch"
     branch: "^chore/.+"
-  - label: patch
+  - label: "version: patch"
     branch: "^bug/.+"
-  - label: patch
+  - label: "version: patch"
     branch: "^hotfix/.+"
-  - label: patch
+  - label: "version: patch"
     branch: "^cleanup/.+"
-  - label: patch
+  - label: "version: patch"
     branch: "^enhancement/.+"
-
-  # Impact Labels
-  - label: inform-customer
-    branch: "^major/.+"
-  - label: inform-customer
-    branch: "^scenario/.+"
-  - label: inform-customer
-    branch: "^hotfix/.+"
-  - label: inform-customer
-    branch: "^bug/.+"
-  - label: inform-customer
-    branch: "^enhancement/.+"
-  - label: immediate-delivery
-    branch: "^hotfix/.+"
-
-  # Boundary Labels
 
 
   # Type Labels
-  - label: scenario
+  - label: "type: scenario"
     branch: "^scenario/.+"
   - label: hotfix
     branch: "^hotfix/.+"
-  - label: bug
+  - label: "type: bugfix"
     branch: "^hotfix/.+"
-  - label: bug
+  - label: "type: bugfix"
     branch: "^fix/.+"
-  - label: bug
+  - label: "type: bugfix"
     branch: "^bug/.+"
-  - label: documentation
+
+
+  - label: "documentation"
     files:
       - "*.md"
       - "docs/*"
-  - label: "infrastructure"
+  - label: "component: source"
     files:
-      - "terraform/*"
-      - "infrastructure/*"
-      - "infrastructure-config/*"
-      - "*.tf"
-      - "*.tfvars"
-  - label: "build definition"
+      - "src/**/*"
+  - label: "component: build"
     files:
-      - ".github/*"
-      - "build.yml"
-      - "build.xml"
-      - "docker-compose.yml"
-      - "docker/*"
-      - ".dockerignore"
-      - "make/*"
-      - "develop/ansible/*"
-      - "develop/docker/*"
-  - label: "data"
+      - "dist/**/*"
+  - label: "component: config"
     files:
-      - "database/*"
-  - label: "tests"
+      - ".github/**/*"
+      - "package*.json"
+      - ".npmrc"
+      - "tsconfig*.json"
+      - ".eslintrc*"
+      - ".prettier*"
+  - label: "component: action"
     files:
-      - "tests/*"
+      - "action.yml"
+      - "action.yaml"
+  - label: "component: tests"
+    files:
+      - "__tests__/*"
 
   # PR Size Labels
-  - label: "PR-Size: S"
+  - label: "size: S"
     size-below: 50
-  - label: "PR-Size: M"
+  - label: "size: M"
     size-above: 49
     size-below: 333
-  - label: "PR-Size: L"
+  - label: "size: L"
     size-above: 332
-
-  # QA Label
-  - label: "qa"
-    files:
-      - app/*
-      - config/*
-      - database/*
-  - label: qa
-    branch: "^major/.+"
-  - label: qa
-    branch: "^feature/.+"
-  - label: qa
-    branch: "^enhancement/.+"
-  - label: "qa"
-    branch: "^hotfix/.+"
