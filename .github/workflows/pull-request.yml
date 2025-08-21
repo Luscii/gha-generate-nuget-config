@@ -5,5 +5,14 @@ on:
     branches: [ main ]
 
 jobs:
+  administration:
+    runs-on: ubuntu-latest
+    steps:
+      - name: PR Labeling
+        uses: srvaroa/labeler@v1.12.0
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.CI_GITHUB_TOKEN }}
+
   test:
     uses: ./.github/workflows/test.yml
