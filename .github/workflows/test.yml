@@ -53,7 +53,7 @@ jobs:
               },
               "GitHub": {
                 "url": "https://nuget.pkg.github.com/Luscii/index.json",
-                "protocolVersion": "3.0",
+                "protocolVersion": "3",
                 "credentials": {
                   "username": "github-actions",
                   "password": "${{ secrets.GITHUB_TOKEN }}"
